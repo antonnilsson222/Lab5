@@ -71,6 +71,9 @@ public class Game
         if(firstPoint)
             totalGameScore += spareThrow.getThrows()[0];
         
+        if(fullPoint)
+            totalGameScore += spareThrow.score();
+        
         return totalGameScore;
     }
 }
