@@ -3,9 +3,16 @@ package labb5.game;
 public class Game 
 {
     Frame[] frames = null;
+    Frame spareThrow = null;
     
     public Game(Frame[] frames)
     {
+        this.frames = frames;
+    }
+    
+    public Game(Frame[] frames, Frame spareThrow)
+    {
+        this.spareThrow = spareThrow;
         this.frames = frames;
     }
     

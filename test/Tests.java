@@ -156,4 +156,24 @@ public class Tests {
         
         assertEquals((10+5)+(10+7)+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+6, testGame.score());
     }
+    
+    @Test
+    public void spareLastFrameTest()
+    {
+        Frame[] testFrames = new Frame[11];
+        testFrames[0] = new Frame(1,5);
+        testFrames[1] = new Frame(3,6);
+        testFrames[2] = new Frame(7,2);
+        testFrames[3] = new Frame(3,6);
+        testFrames[4] = new Frame(4,4);
+        testFrames[5] = new Frame(5,3);
+        testFrames[6] = new Frame(3,3);
+        testFrames[7] = new Frame(4,5);
+        testFrames[8] = new Frame(8,1);
+        testFrames[9] = new Frame(2,8);
+        Frame spareThrow = new Frame(7,0);
+        Game testGame = new Game(testFrames, spareThrow);
+        
+        assertEquals(1+5+3+6+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+8+7, testGame.score());
+    }
 }
