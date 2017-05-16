@@ -17,31 +17,25 @@ public class Game
     public int getGameScore()
     {
         int totalGameScore = 0;
-        boolean getFullPointAfter = false;
-        boolean getFirstPointAfter = false;
-        for (int i = 0; i < frames.length; i++)
-        {
-            if(frames[i] != null)
-            {
-                if(getFirstPointAfter)
-                {
-                    totalGameScore += frames[i].getFrameScoreArray()[0];
-                    getFirstPointAfter = false;
+        boolean fullPoint = false;
+        boolean firstPoint = false;
+        for (Frame frame : frames) {
+            if (frame != null) {
+                if (firstPoint) {
+                    totalGameScore += frame.getFrameScoreArray()[0];
+                    firstPoint = false;
                 }
-                
-                if(getFullPointAfter)
-                {
-                    if(frames[i].strike())
-                        getFirstPointAfter = true;
-                    
-                    totalGameScore += frames[i].getFrameScore();
-                    getFullPointAfter = false;
+                if (fullPoint) {
+                    if (frame.strike()) {
+                        firstPoint = true;
+                    }
+                    totalGameScore += frame.getFrameScore();
+                    fullPoint = false;
                 }
-                
-                totalGameScore += frames[i].getFrameScore();
-                                
-                if(frames[i].strike())
-                    getFullPointAfter = true;
+                totalGameScore += frame.getFrameScore();
+                if (frame.strike()) {
+                    fullPoint = true;
+                }
             }
         }
         
