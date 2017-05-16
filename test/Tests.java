@@ -29,6 +29,6 @@ public class Tests {
         Frame[] testFrames = new Frame[10];
         testFrames[0] = new Frame(12,5);
         Game testGame = new Game(testFrames);
-        assertEquals(testGame.getFrameArray(), testFrames);
+        assertArrayEquals(testGame.getFrameArray(), testFrames);
     }
 }
