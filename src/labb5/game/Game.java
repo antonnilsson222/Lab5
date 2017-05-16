@@ -9,12 +9,12 @@ public class Game
         this.frames = frames;
     }
     
-    public Frame[] getAllFramesArray()
+    public Frame[] getAllFrames()
     {
         return frames;
     }
     
-    public int getGameScore()
+    public int score()
     {
         int totalGameScore = 0;
         boolean fullPoint = false;
@@ -22,17 +22,17 @@ public class Game
         for (Frame frame : frames) {
             if (frame != null) {
                 if (firstPoint) {
-                    totalGameScore += frame.getFrameScoreArray()[0];
+                    totalGameScore += frame.getThrows()[0];
                     firstPoint = false;
                 }
                 if (fullPoint) {
                     if (frame.strike()) {
                         firstPoint = true;
                     }
-                    totalGameScore += frame.getFrameScore();
+                    totalGameScore += frame.score();
                     fullPoint = false;
                 }
-                totalGameScore += frame.getFrameScore();
+                totalGameScore += frame.score();
                 if (frame.strike()) {
                     fullPoint = true;
                 }

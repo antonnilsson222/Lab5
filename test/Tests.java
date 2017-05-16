@@ -12,7 +12,7 @@ public class Tests {
     {
         int[] testThrows = {5,1};
         Frame myFrame = new Frame(testThrows[0],testThrows[1]);
-        assertArrayEquals(myFrame.getFrameScoreArray(), testThrows);
+        assertArrayEquals(myFrame.getThrows(), testThrows);
     }
     
     @Test
@@ -20,7 +20,7 @@ public class Tests {
     {
         int[] testThrows = {5,1};
         Frame myFrame = new Frame(testThrows[0],testThrows[1]);
-        assertEquals(testThrows[0]+testThrows[1], myFrame.getFrameScore());
+        assertEquals(testThrows[0]+testThrows[1], myFrame.score());
     }
     
     @Test
@@ -29,7 +29,7 @@ public class Tests {
         Frame[] testFrames = new Frame[10];
         testFrames[0] = new Frame(12,5);
         Game testGame = new Game(testFrames);
-        assertArrayEquals(testGame.getAllFramesArray(), testFrames);
+        assertArrayEquals(testGame.getAllFrames(), testFrames);
     }
     
     @Test
@@ -41,7 +41,7 @@ public class Tests {
         testFrames[9] = new Frame(6,3);
         
         Game testGame = new Game(testFrames);
-        assertEquals(46, testGame.getGameScore());
+        assertEquals(46, testGame.score());
     }
     
     @Test
@@ -52,7 +52,7 @@ public class Tests {
         assertEquals(true, strikeFrame.strike());
         assertEquals(false, noneStrikeFrame.strike());
 
-        assertEquals(10, strikeFrame.getFrameScore());
+        assertEquals(10, strikeFrame.score());
         
         Frame[] testFrames = new Frame[10];
         testFrames[0] = strikeFrame;
@@ -67,7 +67,7 @@ public class Tests {
         testFrames[9] = strikeFrame;
         Game testGame = new Game(testFrames);
         
-        assertEquals(((10+5+2)+5+2+(10+10+5)+(10+5+2)+5+2+(10+10+10)+(10+10+5)+(10+5+2)+5+2+(10)), testGame.getGameScore());
+        assertEquals(((10+5+2)+5+2+(10+10+5)+(10+5+2)+5+2+(10+10+10)+(10+10+5)+(10+5+2)+5+2+(10)), testGame.score());
 
     }
     
@@ -81,7 +81,7 @@ public class Tests {
         assertEquals(false, noneStrikeFrame.spare());
         assertEquals(false, strikeFrame.spare());
         
-        assertEquals(10, spareFrame.getFrameScore());
+        assertEquals(10, spareFrame.score());
 
         Frame[] testFrames = new Frame[10];
         testFrames[0] = spareFrame;
@@ -96,7 +96,7 @@ public class Tests {
         testFrames[9] = spareFrame;
         Game testGame = new Game(testFrames);
         
-        assertEquals((10+5)+5+2+(10+6)+(10+5)+5+2+(10+6)+(10+6)+(10+5)+5+2+(10), testGame.getGameScore());
+        assertEquals((10+5)+5+2+(10+6)+(10+5)+5+2+(10+6)+(10+6)+(10+5)+5+2+(10), testGame.score());
 
     }
 }

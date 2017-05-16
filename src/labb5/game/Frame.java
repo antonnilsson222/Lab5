@@ -11,12 +11,12 @@ public class Frame
         score[1] = secondThrow;
     }
     
-    public int[] getFrameScoreArray()
+    public int[] getThrows()
     {   
         return score;
     }
     
-    public int getFrameScore()
+    public int score()
     {
         return (score[0]+score[1]);
     }
