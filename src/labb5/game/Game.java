@@ -7,6 +7,7 @@ public class Game
     
     public Game(Frame[] frames)
     {
+        this.spareThrow = new Frame(0,0);
         this.frames = frames;
     }
     
@@ -24,30 +25,35 @@ public class Game
     public int score()
     {
         int totalGameScore = 0;
+        int lastFrame = 0;
         boolean fullPoint = false;
         boolean firstPoint = false;
-        for (Frame frame : frames) {
-            if (frame != null) {
+        for (int i = 0; i < frames.length;i++) {
+            if (frames[i] != null) {
                 if (firstPoint) {
-                    totalGameScore += frame.getThrows()[0];
+                    totalGameScore += frames[i].getThrows()[0];
                     firstPoint = false;
                 }
                 if (fullPoint) {
-                    if (frame.strike()) {
+                    if (frames[i].strike()) {
                         firstPoint = true;
                     }
-                    totalGameScore += frame.score();
+                    totalGameScore += frames[i].score();
                     fullPoint = false;
                 }
-                totalGameScore += frame.score();
-                if (frame.strike()) {
+                totalGameScore += frames[i].score();
+                if (frames[i].strike()) {
                     fullPoint = true;
                 }
-                if (frame.spare()) {
+                if (frames[i].spare()) {
                     firstPoint = true;
                 }
+                lastFrame = i;
             }
         }
+        
+        if(frames[lastFrame].spare())
+            totalGameScore += spareThrow.getThrows()[0];
         
         return totalGameScore;
     }
