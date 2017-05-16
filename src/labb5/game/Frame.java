@@ -21,6 +21,6 @@ public class Frame
     
     public int getFrameScore()
     {
-        return 0;
+        return (score[0]+score[1]);
     }
 }
