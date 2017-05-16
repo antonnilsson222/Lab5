@@ -43,4 +43,31 @@ public class Tests {
         Game testGame = new Game(testFrames);
         assertEquals(46, testGame.getGameScore());
     }
+    
+    @Test
+    public void strikeTest()
+    {
+        Frame strikeFrame = new Frame(10,0);
+        Frame noneStrikeFrame = new Frame(5,2);
+        assertEquals(true, strikeFrame.strike());
+        assertEquals(false, noneStrikeFrame.strike());
+
+        assertEquals(10, strikeFrame.getFrameScore());
+        
+        Frame[] testFrames = new Frame[10];
+        testFrames[0] = strikeFrame;
+        testFrames[1] = noneStrikeFrame;
+        testFrames[2] = strikeFrame;
+        testFrames[3] = strikeFrame;
+        testFrames[4] = noneStrikeFrame;
+        testFrames[5] = strikeFrame;
+        testFrames[6] = strikeFrame;
+        testFrames[7] = strikeFrame;
+        testFrames[8] = noneStrikeFrame;
+        testFrames[9] = strikeFrame;
+        Game testGame = new Game(testFrames);
+        
+        assertEquals(((10+5+2)+5+2+(10+10+5)+(10+5+2)+5+2+(10+10+10)+(10+10+5)+(10+5+2)+5+2+(10)), testGame.getGameScore());
+
+    }
 }

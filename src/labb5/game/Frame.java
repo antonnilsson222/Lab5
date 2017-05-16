@@ -20,4 +20,9 @@ public class Frame
     {
         return (score[0]+score[1]);
     }
+    
+    public boolean strike()
+    {
+        return false;
+    }
 }
