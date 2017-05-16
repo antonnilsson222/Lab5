@@ -186,4 +186,32 @@ public class Tests {
         
         assertEquals(1+5+3+6+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+8+7, testGame.score());
     }
+    
+    @Test
+    public void strikeLastFrameTest()
+    {
+        Frame[] testFrames = new Frame[11];
+        testFrames[0] = new Frame(1,5);
+        testFrames[1] = new Frame(3,6);
+        testFrames[2] = new Frame(7,2);
+        testFrames[3] = new Frame(3,6);
+        testFrames[4] = new Frame(4,4);
+        testFrames[5] = new Frame(5,3);
+        testFrames[6] = new Frame(3,3);
+        testFrames[7] = new Frame(4,5);
+        testFrames[8] = new Frame(8,1);
+        testFrames[9] = new Frame(10,0);
+        //Spare throw
+        testFrames[10] = new Frame(7,2);
+        Game testGame = new Game();
+        
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
+        
+        assertEquals(1+5+3+6+7+2+3+6+4+4+5+3+3+3+4+5+8+1+10+7+2, testGame.score());
+    }
 }
