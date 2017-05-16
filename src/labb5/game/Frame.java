@@ -21,7 +21,7 @@ public class Frame
         return (score[0]+score[1]);
     }
     
-    public boolean strike()
+    public boolean isStrike()
     {
         boolean isStrike = false;
         if(score[0] == 10)
@@ -30,7 +30,7 @@ public class Frame
         return isStrike;
     }
     
-    public boolean spare()
+    public boolean isSpare()
     {
         boolean isSpare = false;
         if(score[0] > 0 && score[1] > 0 && (score[0]+score[1] == 10))

@@ -36,6 +36,8 @@ public class Tests {
     public void gameScore()
     {
         Frame[] testFrames = new Frame[10];
+        for(int i = 0; i < testFrames.length; i++)
+            testFrames[i] = new Frame(0,0);
         testFrames[0] = new Frame(12,5);
         testFrames[5] = new Frame(2,18);
         testFrames[9] = new Frame(6,3);
@@ -49,8 +51,8 @@ public class Tests {
     {
         Frame strikeFrame = new Frame(10,0);
         Frame noneStrikeFrame = new Frame(5,2);
-        assertEquals(true, strikeFrame.strike());
-        assertEquals(false, noneStrikeFrame.strike());
+        assertEquals(true, strikeFrame.isStrike());
+        assertEquals(false, noneStrikeFrame.isStrike());
 
         assertEquals(10, strikeFrame.score());
         
@@ -77,9 +79,9 @@ public class Tests {
         Frame strikeFrame = new Frame(10,0);
         Frame noneStrikeFrame = new Frame(5,2);
         Frame spareFrame = new Frame(6,4);
-        assertEquals(true, spareFrame.spare());
-        assertEquals(false, noneStrikeFrame.spare());
-        assertEquals(false, strikeFrame.spare());
+        assertEquals(true, spareFrame.isSpare());
+        assertEquals(false, noneStrikeFrame.isSpare());
+        assertEquals(false, strikeFrame.isSpare());
         
         assertEquals(10, spareFrame.score());
 
@@ -171,8 +173,16 @@ public class Tests {
         testFrames[7] = new Frame(4,5);
         testFrames[8] = new Frame(8,1);
         testFrames[9] = new Frame(2,8);
-        Frame spareThrow = new Frame(7,0);
-        Game testGame = new Game(testFrames, spareThrow);
+        //Spare throw
+        testFrames[10] = new Frame(7,0);
+        Game testGame = new Game();
+        
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
         
         assertEquals(1+5+3+6+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+8+7, testGame.score());
     }
