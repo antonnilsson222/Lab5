@@ -13,4 +13,9 @@ public class Game
     {
         return frames;
     }
+    
+    public int getGameScore()
+    {
+        return 0;
+    }
 }

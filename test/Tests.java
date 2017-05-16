@@ -31,4 +31,16 @@ public class Tests {
         Game testGame = new Game(testFrames);
         assertArrayEquals(testGame.getFrameArray(), testFrames);
     }
+    
+    @Test
+    public void gameScore()
+    {
+        Frame[] testFrames = new Frame[10];
+        testFrames[0] = new Frame(12,5);
+        testFrames[5] = new Frame(2,18);
+        testFrames[9] = new Frame(6,3);
+        
+        Game testGame = new Game(testFrames);
+        assertEquals(46, testGame.getGameScore());
+    }
 }
