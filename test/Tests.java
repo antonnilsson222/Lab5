@@ -14,4 +14,12 @@ public class Tests {
         Frame myFrame = new Frame(testThrows[0],testThrows[1]);
         assertArrayEquals(myFrame.getFrameScoreArray(), testThrows);
     }
+    
+    @Test
+    public void frameScore()
+    {
+        int[] testThrows = {5,1};
+        Frame myFrame = new Frame(testThrows[0],testThrows[1]);
+        assertEquals(testThrows[0]+testThrows[1], myFrame.getFrameScore());
+    }
 }

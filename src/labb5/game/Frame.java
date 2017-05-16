@@ -18,4 +18,9 @@ public class Frame
     {   
         return score;
     }
+    
+    public int getFrameScore()
+    {
+        return 0;
+    }
 }
