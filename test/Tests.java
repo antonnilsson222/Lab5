@@ -137,4 +137,23 @@ public class Tests {
         
         assertEquals((10+10+7)+(10+7+2)+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+6, testGame.score());
     }
+    
+    @Test
+    public void multipleSparesTest()
+    {
+        Frame[] testFrames = new Frame[10];
+        testFrames[0] = new Frame(8,2);
+        testFrames[1] = new Frame(5,5);
+        testFrames[2] = new Frame(7,2);
+        testFrames[3] = new Frame(3,6);
+        testFrames[4] = new Frame(4,4);
+        testFrames[5] = new Frame(5,3);
+        testFrames[6] = new Frame(3,3);
+        testFrames[7] = new Frame(4,5);
+        testFrames[8] = new Frame(8,1);
+        testFrames[9] = new Frame(2,6);
+        Game testGame = new Game(testFrames);
+        
+        assertEquals((10+5)+(10+7)+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+6, testGame.score());
+    }
 }
