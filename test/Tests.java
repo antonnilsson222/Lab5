@@ -70,4 +70,33 @@ public class Tests {
         assertEquals(((10+5+2)+5+2+(10+10+5)+(10+5+2)+5+2+(10+10+10)+(10+10+5)+(10+5+2)+5+2+(10)), testGame.getGameScore());
 
     }
+    
+    @Test
+    public void spareTest()
+    {
+        Frame strikeFrame = new Frame(10,0);
+        Frame noneStrikeFrame = new Frame(5,2);
+        Frame spareFrame = new Frame(6,4);
+        assertEquals(true, spareFrame.spare());
+        assertEquals(false, noneStrikeFrame.spare());
+        assertEquals(false, strikeFrame.spare());
+        
+        assertEquals(10, spareFrame.getFrameScore());
+
+        Frame[] testFrames = new Frame[10];
+        testFrames[0] = spareFrame;
+        testFrames[1] = noneStrikeFrame;
+        testFrames[2] = spareFrame;
+        testFrames[3] = spareFrame;
+        testFrames[4] = noneStrikeFrame;
+        testFrames[5] = spareFrame;
+        testFrames[6] = spareFrame;
+        testFrames[7] = spareFrame;
+        testFrames[8] = noneStrikeFrame;
+        testFrames[9] = spareFrame;
+        Game testGame = new Game(testFrames);
+        
+        assertEquals((10+5)+5+2+(10+6)+(10+5)+5+2+(10+6)+(10+6)+(10+5)+5+2+(10), testGame.getGameScore());
+
+    }
 }
