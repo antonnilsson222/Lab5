@@ -14,7 +14,7 @@ public class Frame
         score[1] = secondThrow;
     }
     
-    public int[] checkConstructor()
+    public int[] getFrameScoreArray()
     {   
         return score;
     }

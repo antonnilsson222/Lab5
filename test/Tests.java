@@ -1,8 +1,6 @@
-import java.lang.reflect.Constructor;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import labb5.game.*;
-import org.junit.BeforeClass;
 
 public class Tests {
     
@@ -14,6 +12,6 @@ public class Tests {
     {
         int[] testThrows = {5,1};
         Frame myFrame = new Frame(testThrows[0],testThrows[1]);
-        assertArrayEquals(myFrame.checkConstructor(), testThrows);
+        assertArrayEquals(myFrame.getFrameScoreArray(), testThrows);
     }
 }
