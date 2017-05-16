@@ -9,20 +9,20 @@ public class Game
         this.frames = frames;
     }
     
-    public Frame[] getFrameArray()
+    public Frame[] getAllFramesArray()
     {
         return frames;
     }
     
     public int getGameScore()
     {
-        int totalScore = 0;
+        int totalGameScore = 0;
         for (Frame x : frames)
         {
             if(x != null)
-                totalScore += x.getFrameScore();
+                totalGameScore += x.getFrameScore();
         }
         
-        return totalScore;
+        return totalGameScore;
     }
 }
