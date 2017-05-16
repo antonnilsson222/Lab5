@@ -9,7 +9,7 @@ public class Game
     
     public Game(Frame[] frames)
     {
-        
+        this.frames = frames;
     }
     
     public Frame[] getFrameArray()
