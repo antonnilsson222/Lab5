@@ -36,6 +36,9 @@ public class Game
                 if (frame.strike()) {
                     fullPoint = true;
                 }
+                if (frame.spare()) {
+                    firstPoint = true;
+                }
             }
         }
         

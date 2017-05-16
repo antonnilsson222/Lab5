@@ -32,6 +32,10 @@ public class Frame
     
     public boolean spare()
     {
-        return false;
+        boolean isSpare = false;
+        if(score[0] > 0 && score[1] > 0 && (score[0]+score[1] == 10))
+            isSpare = true;
+        
+        return isSpare;
     }
 }
