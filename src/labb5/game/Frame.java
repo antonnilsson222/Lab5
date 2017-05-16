@@ -4,9 +4,6 @@ public class Frame
 {   
     int[] score = null;
     
-    public  Frame()
-    { }
-    
     public Frame(int firstThrow, int secondThrow)
     {
         score = new int[2];
