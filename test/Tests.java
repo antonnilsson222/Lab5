@@ -22,4 +22,13 @@ public class Tests {
         Frame myFrame = new Frame(testThrows[0],testThrows[1]);
         assertEquals(testThrows[0]+testThrows[1], myFrame.getFrameScore());
     }
+    
+    @Test
+    public void defineGameWithFrames()
+    {
+        Frame[] testFrames = new Frame[10];
+        testFrames[0] = new Frame(12,5);
+        Game testGame = new Game(testFrames);
+        assertEquals(testGame.getFrameArray(), testFrames);
+    }
 }
