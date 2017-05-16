@@ -23,6 +23,10 @@ public class Frame
     
     public boolean strike()
     {
-        return false;
+        boolean isStrike = false;
+        if(score[0] == 10)
+            isStrike = true;
+        
+        return isStrike;
     }
 }
