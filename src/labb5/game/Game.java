@@ -25,18 +25,20 @@ public class Game
     
     public boolean makeThrow(int throw1, int throw2)
     {
-        boolean keepThrowing = false;
+        boolean keepThrowing = true;
         
         if(currentFrame  < frames.length)
-        {
+        {   
             frames[currentFrame] = new Frame(throw1, throw2);
             currentFrame++;
-            keepThrowing = true;
+            
+            if(currentFrame == frames.length && !frames[currentFrame-1].isSpare() && !frames[currentFrame-1].isStrike())
+                keepThrowing = false;
         }
         
-        if(currentFrame == frames.length)
+        else
         {
-            spareThrow = new Frame(throw1,throw2);
+            spareThrow = new Frame(throw1, throw2);
         }
         
         return keepThrowing;

@@ -41,8 +41,15 @@ public class Tests {
         testFrames[0] = new Frame(12,5);
         testFrames[5] = new Frame(2,18);
         testFrames[9] = new Frame(6,3);
+        Game testGame = new Game();
         
-        Game testGame = new Game(testFrames);
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
+        
         assertEquals(46, testGame.score());
     }
     
@@ -67,7 +74,14 @@ public class Tests {
         testFrames[7] = strikeFrame;
         testFrames[8] = noneStrikeFrame;
         testFrames[9] = strikeFrame;
-        Game testGame = new Game(testFrames);
+        Game testGame = new Game();
+        
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
         
         assertEquals(((10+5+2)+5+2+(10+10+5)+(10+5+2)+5+2+(10+10+10)+(10+10+5)+(10+5+2)+5+2+(10)), testGame.score());
 
@@ -96,7 +110,14 @@ public class Tests {
         testFrames[7] = spareFrame;
         testFrames[8] = noneStrikeFrame;
         testFrames[9] = spareFrame;
-        Game testGame = new Game(testFrames);
+        Game testGame = new Game();
+        
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
         
         assertEquals((10+5)+5+2+(10+6)+(10+5)+5+2+(10+6)+(10+6)+(10+5)+5+2+(10), testGame.score());
 
@@ -116,7 +137,14 @@ public class Tests {
         testFrames[7] = new Frame(4,5);
         testFrames[8] = new Frame(8,1);
         testFrames[9] = new Frame(2,6);
-        Game testGame = new Game(testFrames);
+        Game testGame = new Game();
+        
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
         
         assertEquals((10+4+6)+(4+6+7)+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+6, testGame.score());
     }
@@ -135,8 +163,14 @@ public class Tests {
         testFrames[7] = new Frame(4,5);
         testFrames[8] = new Frame(8,1);
         testFrames[9] = new Frame(2,6);
-        Game testGame = new Game(testFrames);
+        Game testGame = new Game();
         
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
         assertEquals((10+10+7)+(10+7+2)+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+6, testGame.score());
     }
     
@@ -154,7 +188,14 @@ public class Tests {
         testFrames[7] = new Frame(4,5);
         testFrames[8] = new Frame(8,1);
         testFrames[9] = new Frame(2,6);
-        Game testGame = new Game(testFrames);
+        Game testGame = new Game();
+        
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
         
         assertEquals((10+5)+(10+7)+7+2+3+6+4+4+5+3+3+3+4+5+8+1+2+6, testGame.score());
     }
