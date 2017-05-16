@@ -16,6 +16,13 @@ public class Game
     
     public int getGameScore()
     {
-        return 0;
+        int totalScore = 0;
+        for (Frame x : frames)
+        {
+            if(x != null)
+                totalScore += x.getFrameScore();
+        }
+        
+        return totalScore;
     }
 }
