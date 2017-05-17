@@ -311,4 +311,32 @@ public class Tests {
         
         assertEquals((10+10+10)+(10+10+10)+(10+10+10)+(10+10+10)+(10+10+10)+(10+10+10)+(10+10+10)+(10+10+10)+(10+10+10)+(10+10+10), testGame.score());
     }
+    
+    @Test
+    public void realGameTest()
+    {
+        Frame[] testFrames = new Frame[11];
+        testFrames[0] = new Frame(6,3);
+        testFrames[1] = new Frame(7,1);
+        testFrames[2] = new Frame(8,2);
+        testFrames[3] = new Frame(7,2);
+        testFrames[4] = new Frame(10,0);
+        testFrames[5] = new Frame(6,2);
+        testFrames[6] = new Frame(7,3);
+        testFrames[7] = new Frame(10,0);
+        testFrames[8] = new Frame(8,0);
+        testFrames[9] = new Frame(7,3);
+        //Spare throw
+        testFrames[10] = new Frame(10,0);
+        Game testGame = new Game();
+        
+        boolean keepThrow = true;
+        for(Frame x : testFrames)
+        {
+            if(keepThrow)
+                keepThrow = testGame.makeThrow(x.getThrows()[0], x.getThrows()[1]);
+        }
+        
+        assertEquals(6+3+7+1+(8+2+7)+7+2+(10+6+2)+6+2+(7+3+10)+(10+8+0)+8+0+(7+3+10), testGame.score());
+    }
 }
